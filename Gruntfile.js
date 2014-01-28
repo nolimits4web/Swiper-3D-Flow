@@ -15,10 +15,10 @@ module.exports = function(grunt) {
     grunt.initConfig({
         swiper: swiper,
         // Metadata.
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('bower.json'),
         banner: '/*\n' +
           ' * Swiper 3D Flow <%= pkg.version %>\n' +
-          ' * Plugin for Swiper 2.4+\n' +
+          ' * <%= pkg.description %>\n' +
           ' *\n' +
           ' * <%= pkg.homepage %>\n' +
           ' *\n' +

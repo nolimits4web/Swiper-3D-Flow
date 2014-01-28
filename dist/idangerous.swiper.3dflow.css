@@ -1,14 +1,14 @@
 /*
- * Swiper 3D Flow 2.1.0 - Mobile Touch Slider
- * Plugin for Swiper 2.4+
+ * Swiper 3D Flow 2.1.0
+ * 3D Flow plugin for Swiper
  *
- * http://www.idangero.us/sliders/swiper
+ * http://www.idangero.us/sliders/swiper/plugins/3dflow.php
  *
  * Copyright 2010-2014, Vladimir Kharlampidi
  * The iDangero.us
  * http://www.idangero.us/
  *
- * Licensed under GPL, MIT
+ * Licensed under GPL & MIT
  *
  * Released on: January 28, 2014
 */
