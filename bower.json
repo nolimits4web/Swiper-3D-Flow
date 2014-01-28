@@ -13,5 +13,8 @@
   "styles": [
     "dist/idangerous.swiper.3dflow.css"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "swiper": "~2.4.2"
+  }
 }
