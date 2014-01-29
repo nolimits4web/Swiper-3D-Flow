@@ -1,0 +1,31 @@
+{
+  "name": "swiper-3d-flow",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolimits4web/Swiper-3D-Flow.git"
+  },
+  "description": "3D Flow plugin for Swiper",
+  "version": "2.1.0",
+  "author": "Vladimir Kharlampidi",
+  "homepage": "http://www.idangero.us/sliders/swiper/plugins/3dflow.php",
+  "keywords": ["swiper", "swipe", "slider", "plugin", "3dflow"],
+  "scripts": [
+    "dist/idangerous.swiper.3dflow.js"
+  ],
+  "main": "dist/idangerous.swiper.3dflow.js",
+  "styles": [
+    "dist/idangerous.swiper.3dflow.css"
+  ],
+  "license": ["GPL", "MIT"],
+  "dependencies": {
+    "swiper": "~2.4.2"
+  },
+  "ignore": [
+    ".*",
+    "demos",
+    "Gruntfile",
+    "lib",
+    "node_modules",
+    "package.json"
+  ]
+}
