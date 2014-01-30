@@ -45,6 +45,22 @@ module.exports = function(grunt) {
                 dest: 'dist/<%= swiper.filename %>.css'
             }
         },
+        copy: {
+            demos: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist',
+                    src: ['*.css'],
+                    dest: 'demos/css'
+                },
+                {
+                    expand: true,
+                    cwd: 'dist',
+                    src: ['*.js'],
+                    dest: 'demos/js/'
+                }]
+            }
+        },
         uglify: {
             options: {
                 banner: '<%= banner %>'
@@ -89,4 +105,9 @@ module.exports = function(grunt) {
         'uglify'
     ]);
 
+    // Build demo
+    this.registerTask('demo', 'Builds demo of <%= pkg.name %>', [
+        'build',
+        'copy:demos'
+    ]);
 };

@@ -6,7 +6,6 @@
   "license": ["GPL", "MIT"],
   "dependencies": {
     "swiper": "~2.4.2",
-    "swiper-3d-flow": "~2.1.0",
     "swiper-scrollbar": "~2.4.0"
   }
 }
