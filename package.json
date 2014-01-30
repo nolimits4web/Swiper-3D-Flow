@@ -1,7 +1,7 @@
 {
-  "name": "Swiper-3D-Flow",
+  "name": "swiper-3d-flow",
   "version": "2.1.0",
-  "description": "Mobile touch slider and framework with hardware accelerated transitions",
+  "description": "3D Flow plugin for Swiper",
   "main": "dist/idangerous.swiper.3dflow.js",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/nolimits4web/Swiper-3D-Flow/issues"
   },
-  "homepage": "http://www.idangero.us/sliders/swiper",
+  "homepage": "http://www.idangero.us/sliders/swiper/plugins/3dflow.php",
   "engines": {
     "node": ">= 0.10.0"
   },
