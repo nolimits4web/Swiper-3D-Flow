@@ -1,3 +1,17 @@
+/*
+ * Swiper 3D Flow 2.1.0
+ * 3D Flow plugin for Swiper
+ *
+ * http://www.idangero.us/sliders/swiper/plugins/3dflow.php
+ *
+ * Copyright 2010-2014, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under GPL & MIT
+ *
+ * Released on: January 28, 2014
+*/
 .swiper-container, .swiper-wrapper, .swiper-slide {
 	-webkit-transform-style:preserve-3d;
 	-moz-transform-style:preserve-3d;

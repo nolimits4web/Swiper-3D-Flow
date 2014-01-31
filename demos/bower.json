@@ -1,0 +1,11 @@
+{
+  "name": "swiper-3d-flow-demos",
+  "description": "Demos for 3D Flow plugin for Swiper",
+  "version": "2.1.0",
+  "author": "Vladimir Kharlampidi",
+  "license": ["GPL", "MIT"],
+  "dependencies": {
+    "swiper": "~2.4.2",
+    "swiper-scrollbar": "~2.4.0"
+  }
+}

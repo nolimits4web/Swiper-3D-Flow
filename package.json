@@ -31,6 +31,7 @@
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3",
     "jshint-stylish": "~0.1.5",
-    "time-grunt": "~0.2.8"
+    "time-grunt": "~0.2.8",
+    "grunt-contrib-copy": "~0.5.0"
   }
 }

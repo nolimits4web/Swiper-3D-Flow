@@ -1,17 +1,17 @@
 /*
- * Swiper 3D Flow 2.0
- * Plugin for Swiper 2.0+
- * http://www.idangero.us/sliders/swiper/
+ * Swiper 3D Flow 2.1.0
+ * 3D Flow plugin for Swiper
  *
- * Copyright 2012-2013, Vladimir Kharlampidi
+ * http://www.idangero.us/sliders/swiper/plugins/3dflow.php
+ *
+ * Copyright 2010-2014, Vladimir Kharlampidi
  * The iDangero.us
  * http://www.idangero.us/
  *
  * Licensed under GPL & MIT
  *
- * Released on: June 9, 2012
+ * Released on: January 28, 2014
 */
-
 Swiper.prototype.plugins.tdFlow = function(swiper, params) {
 	if (!swiper.support.transforms3d) return;
 	var slides, wrapperSize, slideSize, initialized;
@@ -103,7 +103,7 @@ Swiper.prototype.plugins.tdFlow = function(swiper, params) {
 		}
 		
 		//Set correct perspective for IE10		
-		if (swiper.ie10) {
+		if (swiper.browser.ie10 || swiper.browser.ie11) {
 			var ws = swiper.wrapper.style;
 			ws.perspectiveOrigin = center+'px 50%'
 		}
