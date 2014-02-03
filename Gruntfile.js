@@ -1,7 +1,7 @@
 'use strict';
 
 /*global require:true, module:false*/
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                 src: ['lib/<%= swiper.filename %>.js'],
                 dest: 'dist/<%= swiper.filename %>.js'
             },
-            css:{
+            css: {
                 src: ['lib/<%= swiper.filename %>.css'],
                 dest: 'dist/<%= swiper.filename %>.css'
             }
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
+                tasks: ['jshint:gruntfile'],
             },
             lib: {
                 files: '<%= jshint.lib.src %>',
@@ -99,10 +99,10 @@ module.exports = function(grunt) {
 
     // Build a new version of the library
     this.registerTask('build', 'Builds a distributable version of <%= pkg.name %>', [
+        'jshint',
         'concat:js',
-        'concat:css',
-        //'jshint:all',
-        'uglify'
+        'uglify',
+        'concat:css'
     ]);
 
     // Build demo
