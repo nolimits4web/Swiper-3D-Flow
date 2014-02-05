@@ -44,7 +44,7 @@ This task is equivalent to :
 $ grunt build          # the non module version
 $ grunt build-umd      # the module compatible version
 $ grunt uglify         # minify umd and non umd versions
-
+```
 ## Demos
 
 ### Build
