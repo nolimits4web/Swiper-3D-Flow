@@ -1,7 +1,7 @@
 'use strict';
 
 /*global require:true, module:false*/
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -17,30 +17,37 @@ module.exports = function(grunt) {
         // Metadata.
         pkg: grunt.file.readJSON('bower.json'),
         banner: '/*\n' +
-          ' * Swiper 3D Flow <%= pkg.version %>\n' +
-          ' * <%= pkg.description %>\n' +
-          ' *\n' +
-          ' * <%= pkg.homepage %>\n' +
-          ' *\n' +
-          ' * Copyright 2010-<%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
-          ' * The iDangero.us\n' +
-          ' * http://www.idangero.us/\n' +
-          ' *\n' +
-          ' * Licensed under <%= pkg.license.join(" & ") %>\n' +
-          ' *\n' +
-          ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
-          '*/\n',
+        ' * Swiper 3D Flow <%= pkg.version %>\n' +
+        ' * <%= pkg.description %>\n' +
+        ' *\n' +
+        ' * <%= pkg.homepage %>\n' +
+        ' *\n' +
+        ' * Copyright 2010-<%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
+        ' * The iDangero.us\n' +
+        ' * http://www.idangero.us/\n' +
+        ' *\n' +
+        ' * Licensed under <%= pkg.license.join(" & ") %>\n' +
+        ' *\n' +
+        ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
+        '*/\n',
         // Task configuration.
+        clean: {
+            dist: ['dist']
+        },
         concat: {
             options: {
                 banner: '<%= banner %>',
                 stripBanners: true
             },
             js: {
-                src: ['lib/<%= swiper.filename %>.js'],
+                src: ['dist/<%= swiper.filename %>.js'],
                 dest: 'dist/<%= swiper.filename %>.js'
             },
-            css:{
+            umd: {
+                src: ['<%= umd.lib.dest %>'],
+                dest: 'dist/<%= swiper.filename %>.amd.js'
+            },
+            css: {
                 src: ['lib/<%= swiper.filename %>.css'],
                 dest: 'dist/<%= swiper.filename %>.css'
             }
@@ -65,9 +72,13 @@ module.exports = function(grunt) {
             options: {
                 banner: '<%= banner %>'
             },
-            dist: {
+            lib: {
                 src: ['dist/<%= swiper.filename %>.js'],
                 dest: 'dist/<%= swiper.filename %>.min.js',
+            },
+            umd: {
+                src: ['dist/<%= swiper.filename %>.amd.js'],
+                dest: 'dist/<%= swiper.filename %>.amd.min.js',
             }
         },
         jshint: {
@@ -79,13 +90,41 @@ module.exports = function(grunt) {
                 src: ['Gruntfile.js']
             },
             lib: {
-                src: ['lib/*.js']
+                src: ['lib/<%= swiper.filename %>.js']
             },
+        },
+        umd: {
+            lib: {
+                src: '<%= jshint.lib.src %>',
+                dest: 'dist/<%= swiper.filename %>.umd.js',
+                amdModuleId: 'swiper-3d-flow',
+                objectToExport: 'Swiper',
+                indent: '    ',
+                deps: {
+                    'default': ['swiper'],
+                    'amd': ['swiper'],
+                    'cjs': ['swiper'],
+                    'global': ['Swiper']
+                }
+            }
+        },
+        wrap: {
+            js: {
+                src: ['<%= jshint.lib.src %>'],
+                dest: 'dist/<%= swiper.filename %>.js',
+                options: {
+                    wrapper: [
+                        '(function (Swiper) {\n',
+                        '\n})(Swiper);'
+                    ],
+                    indent: '    '
+                }
+            }
         },
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
+                tasks: ['jshint:gruntfile'],
             },
             lib: {
                 files: '<%= jshint.lib.src %>',
@@ -95,14 +134,26 @@ module.exports = function(grunt) {
     });
 
     // Default task.
-    this.registerTask('default', 'build');
+    this.registerTask('default', ['jshint', 'build']);
 
     // Build a new version of the library
     this.registerTask('build', 'Builds a distributable version of <%= pkg.name %>', [
-        'concat:js',
-        'concat:css',
-        //'jshint:all',
-        'uglify'
+        'wrap:js',
+        'concat:js'
+    ]);
+
+    this.registerTask('build-umd', 'Builds a umd compatible distributable version of <%= pkg.name %>', [
+        'umd:lib',
+        'concat:umd',
+    ]);
+
+    this.registerTask('dist', 'Build dist of <%= pkg.name %>', [
+        'clean',
+        'jshint:lib',
+        'build',
+        'build-umd',
+        'uglify',
+        'concat:css'
     ]);
 
     // Build demo

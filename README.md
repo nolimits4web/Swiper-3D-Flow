@@ -1,5 +1,4 @@
-Swiper-3D-Flow
-==============
+# Swiper-3D-Flow
 
 3D Flow plugin for Swiper
 
@@ -9,8 +8,11 @@ It works in all browser that support CSS3 3D Transforms: WebKit browsers (Chrome
 
 Demos and usage at http://www.idangero.us/sliders/swiper/plugins/3dflow.php
 
-Build
------
+## Note
+
+UMD and non UMD versions are provided.
+
+## Build
 
 This project uses `grunt` to build a dist version.
 
@@ -29,8 +31,23 @@ $ grunt
 
 The results is available in `dist` folder.
 
-Build demos
------------
+
+## Build all versions
+
+To create all versions you can use the `dist` task :
+```
+$ grunt dist
+```
+
+This task is equivalent to :
+```
+$ grunt build          # the non module version
+$ grunt build-umd      # the module compatible version
+$ grunt uglify         # minify umd and non umd versions
+
+## Demos
+
+### Build
 
 To update demos dependencies you will need to do this first,
 ```
@@ -39,7 +56,9 @@ $ cd demos
 $ bower install
 ```
 
-Then you can open demos page in a browser.
+
+### Launch demos
+
 You can use `npm` `serve` module which will create a temporary local server, that will help you watch the demos with no setup overhead.
 
 If you don't have already `serve` module installed, the recommanded way is to install it globally:
@@ -60,6 +79,9 @@ or being in the root folder:
 $ serve ./demos/ -p 5000
 ```
 
-License
--------
+You can now point your brower to `http://localhost:5000/`.
+
+
+## License
+
 GPL & MIT
