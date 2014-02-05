@@ -34,8 +34,8 @@
     "time-grunt": "~0.2.8",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-umd": "git://github.com/stephanebachelier/grunt-umd.git#93b242fb",
-    "grunt-wrap": "~0.3.0"
+    "grunt-wrap": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

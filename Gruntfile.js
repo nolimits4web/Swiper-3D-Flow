@@ -31,6 +31,9 @@ module.exports = function (grunt) {
         ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
         '*/\n',
         // Task configuration.
+        clean: {
+            dist: ['dist']
+        },
         concat: {
             options: {
                 banner: '<%= banner %>',
@@ -145,6 +148,7 @@ module.exports = function (grunt) {
     ]);
 
     this.registerTask('dist', 'Build dist of <%= pkg.name %>', [
+        'clean',
         'jshint:lib',
         'build',
         'build-umd',
