@@ -1,3 +1,5 @@
+# Attention! This plugin is not maintained anymore, because this functionality is already in Swiper 3 core.
+
 # Swiper-3D-Flow
 
 3D Flow plugin for Swiper
